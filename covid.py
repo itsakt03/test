@@ -86,7 +86,7 @@ if optionSelected=="Statewise Data":
         st.write(fig)
 elif optionSelected=="National Data":
 
-    series = pd.read_csv(DATA_URL, header=0, index_col=0, parse_dates=True, squeeze=True)
+    series = pd.read_csv(DATA_URL, header=0, index_col=0, parse_dates=True).squeeze("columns")
     st.info("Total Cases : "  + str(series["Total Confirmed"][-1]))
     st.success("Recovered Cases : " + str(series["Total Recovered"][-1]))
     st.error("Total Deaths : " + str(series["Total Deceased"][-1]))
@@ -138,3 +138,4 @@ else:
 for i in range(18):
     st.sidebar.markdown(" ")
 st.sidebar.subheader("Aryan Kumar Thakur")
+
