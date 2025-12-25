@@ -20,8 +20,8 @@ optionSelected=st.sidebar.radio("",options)
 
 if optionSelected=="Statewise Data":
     st.markdown("Statewise Covid-19 cases in India ")
-    series1=pd.read_csv(DATA_URL_statewise, header=0, index_col=0, parse_dates=True, squeeze=True)
-    series1=series1[["Confirmed","Recovered","Deaths","Active"]]
+series1=pd.read_csv(DATA_URL_statewise, header=0, index_col=0, parse_dates=True).squeeze("columns")
+series1=series1[["Confirmed","Recovered","Deaths","Active"]]
     st.subheader("Statewise Data")
     stateDict={"Andhra Pradesh":"AP","Arunachal Pradesh":"AR","Assam":"AS","Bihar":"BR","Chhattisgarh":"CG",
                 "Goa":"GA","Gujarat":"GJ","Haryana":"HR","Himachal Pradesh":"HP","Jammu and Kashmir":"JK","Jharkhand":"JH","Karnataka":"KA",
@@ -138,4 +138,5 @@ else:
 for i in range(18):
     st.sidebar.markdown(" ")
 st.sidebar.subheader("Aryan Kumar Thakur")
+
 
